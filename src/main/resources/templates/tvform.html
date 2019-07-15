@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TVShows</title>
+</head>
+<body>
+<!-- first field: input type is number & assign to this.id field-->
+<!--              map action from tvform web page & object is tvshow -->
+<!--              if this.id field has an error, mark the field as an error-->
+<!-- rest of fields: input type is text & assign to corresponding field of the object-->
+
+
+<form action="#"
+      th:action="@{/tvform}"
+      th:object="${tvshow}"
+      method="post">
+    Id: <input type="number" th:field="*{id}"/>
+    <span th:if="${#fields.hasErrors('id')}"
+          th:errors="*{id}"></span><br/>
+    Name: <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}"></span><br/>
+    Type: <input type="text" th:field="*{type}"/>
+    <span th:if="${#fields.hasErrors('type')}"
+          th:errors="*{type}"></span><br/>
+    Descriptions: <input type="text" th:field="*{descriptions}"/>
+    <span th:if="${#fields.hasErrors('descriptions')}"
+          th:errors="*{descriptions}"></span><br/>
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
