@@ -5,11 +5,11 @@
     <title>TVShows</title>
 </head>
 <body>
-<!-- first field: input type is number & assign to this.id field-->
-<!--              map action from tvform web page & object is tvshow -->
+<!-- form maps action from tvform web page & object is tvshow -->
+<!-- first field: input type is number & assign to tvshow.id field-->
 <!--              if this.id field has an error, mark the field as an error-->
-<!-- rest of fields: input type is text & assign to corresponding field of the object-->
-
+<!-- 2nd & 3rd fields: input type is text & assign to corresponding field of the tvshow-->
+<!-- 4th field: it is set as a textarea with 3 rows & assign to tvshow.descriptions -->
 
 <form action="#"
       th:action="@{/tvform}"
@@ -24,7 +24,7 @@
     Type: <input type="text" th:field="*{type}"/>
     <span th:if="${#fields.hasErrors('type')}"
           th:errors="*{type}"></span><br/>
-    Descriptions: <input type="text" th:field="*{descriptions}"/>
+    Descriptions: <textarea rows="3" th:field="*{descriptions}"/>
     <span th:if="${#fields.hasErrors('descriptions')}"
           th:errors="*{descriptions}"></span><br/>
 
